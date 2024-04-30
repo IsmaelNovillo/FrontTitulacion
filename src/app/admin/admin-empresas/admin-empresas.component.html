@@ -1,0 +1,113 @@
+<div class="Contenedor-Total">
+  <button class="btn-agregar" (click)="habilitarAgregarEmpresa()">Agregar Empresa</button>
+    
+    <div class="empresa-list-container">
+        <table class="empresa-table">
+          <caption>Lista de Empresas</caption>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Direccion</th>
+              <th>Ciudad</th>
+              <th>Pais</th>
+              
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let empresa of todasEmpresa">
+              <td>{{ empresa.nomepresa }}</td>
+              <td>{{ empresa.dirempresa }}</td>
+              <td>{{ empresa.ciudadempresa }}</td>
+              <td>{{ empresa.paisempresa }}</td>
+             
+              <td>
+                <button class="edit-button" (click)="editarEmpresa(empresa.idempresa, empresa)">Editar</button>
+                <button class="delete-button" (click)="borradorEmpresa(empresa.idempresa)">Borrar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    
+      
+     <!-- Botón para mostrar el formulario -->
+    
+    <div class="modal" [ngClass]="{'show': habilitarRegistroEmpresa}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form [formGroup]="formularioCrearEmpresa" (submit)="creadorEmpresa()">
+              <div class="modal-header">
+                <h2 class="modal-title">Registro de Empresa </h2>
+                <button type="button" class="close" (click)="cancelarAgregarEmpresa()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="nomepresa">Nombre</label>
+                  <input type="text" class="form-control" id="nomepresa" formControlName="nomepresa" required>
+                </div>
+                <div class="form-group">
+                  <label for="dirempresa">Direccion:</label>
+                  <input type="text" class="form-control" id="dirempresa" formControlName="dirempresa" required>
+                </div>
+                <div class="form-group">
+                    <label for="ciudadempresa">Ciudad:</label>
+                    <input type="text" class="form-control" id="ciudadempresa" formControlName="ciudadempresa" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="paisempresa">Pais:</label>
+                    <input type="text" class="form-control" id="paisempresa" formControlName="paisempresa" required>
+                  </div>
+                  
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn-secondary" (click)="cancelarAgregarEmpresa()">Cerrar</button>
+                <button type="submit" class="btn-primary" [disabled]="!formularioCrearEmpresa.valid">Registrar Empresa</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+      <div class="modal" [ngClass]="{'show': habilitarActualizaEmpresa}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form [formGroup]="formActualizaEmpresa" (submit)="actualizacionEmpresa()">
+              <div class="modal-header">
+                <h2 class="modal-title">Actualizacion de Empresa</h2>
+                <button type="button" class="close" (click)="cancelarAgregarEmpresa()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                    <label for="nomepresa">Nombre</label>
+                    <input type="number" class="form-control" id="nomepresa" formControlName="nomepresa" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="dirempresa">Direccion:</label>
+                    <input type="text" class="form-control" id="dirempresa" formControlName="dirempresa" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="ciudadempresa">Ciudad:</label>
+                      <input type="text" class="form-control" id="ciudadempresa" formControlName="ciudadempresa" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="paisempresa">Pais:</label>
+                      <input type="text" class="form-control" id="paisempresa" formControlName="paisempresa" required>
+                    </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn-secondary" (click)="cancelarAgregarEmpresa()">Cerrar</button>
+                <button type="submit" class="btn-primary" [disabled]="!formActualizaEmpresa.valid">Actualizar Empresa</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+      

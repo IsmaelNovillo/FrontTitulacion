@@ -1,0 +1,64 @@
+<div class="main-container">
+    <div class="navigation-banner">
+      <div class="navigation-links">
+        <button routerLink="/inicio" >INICIO </button>
+        <button >PROMOCIONES </button>
+        <button *ngIf="usuarioEsEmpresa" routerLink="/paneles/mi-empresa"  >MI EMPRESA</button>
+
+        <Button >CARTERA <span class="flecha"> &#9660; </span> </Button>
+        <button>PRODUCTOS <span class="flecha"> &#9660; </span> </button>
+        <div class="submenu">
+           <Button type="menu" class="boton-desplegable">TIENDA INTERNA <span class="flecha"> &#9660; </span> </Button>
+          <div class="submenu-content">
+            <button routerLink="/productos">Productos</button>
+            <button>Informacion Bancaria</button>
+            <button>Soporte de Pagos</button>
+            <button>Lista de Soporte</button>
+            <button *ngIf="usuarioEsEmpresa" routerLink="/paneles/registrar-productos"  >Agregar Productos</button>
+            <button *ngIf="usuarioEsEmpresa" routerLink="/paneles/mis-productos"  >Mis Productos</button>
+          </div>
+        
+        </div>
+      </div>
+      <button>CERRAR SESION</button>
+    </div>
+          <!-- Area de mis productos -->
+
+<div class="contenedor-mis-productos">
+    <h2>Lista de mis productos </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of misProductos">
+                <td>{{ producto.nomproducto }}</td>
+                <td>{{ producto.precioproducto }}</td>
+                <td>{{ producto.stockproducto }}</td>
+                <td class="area-botones">
+                    <button class="editar-btn" (click)="editarProducto(producto.id, producto)">Editar</button>
+                    <button class="borrar-btn" (click)="borrarProducto(producto.id)" >Borrar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="activarActualizacion" class="formulario-emergente">
+    <div class="formulario-emergente-contenido">
+        <form [formGroup]="actualizadorProductoForm" (ngSubmit)="guardandoActualizacionProducto()">
+            <input type="text" formControlName="nomproducto" placeholder="Nombre" required>
+            <input type="number" formControlName="precioproducto" placeholder="Precio" required>
+            <input type="number" formControlName="stockproducto" placeholder="Stock" required>
+            <button type="submit" class="guardar-btn">Guardar cambios</button>
+            <button type="button" class="cancelar-btn" (click)="cancelarEdicionProducto()">Cancelar</button>
+        </form>
+    </div>
+</div>
+</div>
+

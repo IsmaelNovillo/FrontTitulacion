@@ -1,0 +1,89 @@
+
+<div class="plan-container">
+<header>
+    <h2>REGISTRO EMPRESARIAL</h2>
+</header>
+<body>
+    <h2> Elige un plan de registro.</h2>
+ <div class="planes-container">
+ 
+    <div class="plan-selector">
+        <div class="img-container">
+            <img src="assets/logo-login.png" alt="LogoLogin">
+        </div>
+<h3>
+    NIVEL PERSONAL
+</h3>
+<div>
+    <h1>Gratis $</h1>
+</div>
+<p> Registro y mantención de los productos GRATIS, máximo tres productos de los
+    más vendidos del empresario o emprendedor.
+    Por la venta de cada producto se realizará la negociación (70% para la pyme, y 30%
+    para Fénix).
+</p>
+
+<button id="planbronce" (click)="enviarPlan(0)" type="submit" routerLink="/seguridad/registro" >Comprar</button>
+</div>
+
+<div class="plan-selector">
+    <div class="img-container">
+        <img src="assets/logo-login.png" alt="LogoLogin">
+    </div>
+    <h3>
+        NIVEL PROFESIONAL
+    </h3>
+    <div>
+        <h1 typ>22.99 $</h1>
+    </div>
+    <p>
+        Registro y mantención de los productos $22,99 incluido IVA. Mensual
+        Cantidad de producto a subir por este valor es, de UNO a CINCO MÁXIMO.
+        Entender que la pyme (micro, pequeño y mediano empresario), puede vender la
+        cantidad ilimitada, e igual contribuirá con el mismo valor.
+    </p>
+    <button id="planplata" (click)="enviarPlan(22.99)" routerLink="/seguridad/registro" type="submit">Comprar</button>
+    </div>
+  
+    <div class="plan-selector">
+        <div class="img-container">
+            <img src="assets/logo-login.png" alt="LogoLogin">
+        </div>
+        <h3>
+            NIVEL MASTER
+        </h3>
+        <div>
+            <h1>34.99 $</h1>
+        </div>
+        <p>
+            Registro y mantención de los productos $34,99 incluido IVA. Mensual
+            Cantidad de producto por este valor es de UNO a DIEZ MÁXIMO.
+            Entender que la pyme (micro, pequeño y mediano empresario), puede vender la
+            cantidad ilimitada, e igual contribuirá con el mismo valor
+        </p>
+        <button id="planoro" (click)="enviarPlan(34.99)" routerLink="/seguridad/registro-empresa" type="submit">Comprar</button>
+        </div>
+  
+        <div class="plan-selector">
+            <div class="img-container">
+                <img src="assets/logo-login.png" alt="LogoLogin">
+            </div>
+            <h3>
+                Magnate Crediten
+            </h3>
+            <div>
+                <h1>Proximamente</h1>
+            </div>
+            <p>
+                Este plan está diseñado para los usuarios más comprometidos que buscan lo mejor de lo mejor. Con el Plan Oro, 
+                disfrutarás de todas las características del Plan Plata y mucho más. Accede a funciones premium, asistencia 
+                prioritaria las 24 horas y contenido exclusivo de expertos en la industria. ¡Elige el Plan Oro para una experiencia 
+                insuperable con nuestra plataforma!
+            </p>
+            <button id="proximamente" routerLink="/seguridad/registro-empresa" type="submit">Inscribirse</button>
+            </div>
+</div>  
+</body>
+
+
+</div>

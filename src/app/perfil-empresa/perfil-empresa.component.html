@@ -1,0 +1,112 @@
+<div class="main-container">
+    <div class="navigation-banner">
+      <div class="navigation-links">
+        <button routerLink="/inicio" >INICIO </button>
+        <button >PROMOCIONES </button>
+        <button *ngIf="usuarioEsEmpresa" routerLink="/paneles/mi-empresa"  >MI EMPRESA</button>
+
+        <Button >CARTERA <span class="flecha"> &#9660; </span> </Button>
+        <button>PRODUCTOS <span class="flecha"> &#9660; </span> </button>
+        <div class="submenu">
+           <Button type="menu" class="boton-desplegable">TIENDA INTERNA <span class="flecha"> &#9660; </span> </Button>
+          <div class="submenu-content">
+            <button routerLink="/productos">Productos</button>
+            <button>Informacion Bancaria</button>
+            <button>Soporte de Pagos</button>
+            <button>Lista de Soporte</button>
+            <button *ngIf="usuarioEsEmpresa" routerLink="/paneles/registrar-productos"  >Agregar Productos</button>
+            <button *ngIf="usuarioEsEmpresa" routerLink="/paneles/mis-productos"  >Mis Productos</button>
+          </div>
+        
+        </div>
+      </div>
+      <button>CERRAR SESION</button>
+    </div>
+  <!-- informacion-personal.component.html -->
+  <div class="informacion-personal-container">
+
+    <div *ngIf="miEmpresa" class="container">
+      <h2 class="title">Perfil de la Empresa</h2>
+      <form [formGroup]="formActualizaEmpresa" (ngSubmit)="actualizacionEmpresa()" >
+       <div class="form-container">
+        <div class="column">
+          <div class="form-group">
+            <label class="label" for="nomepresa">Nombre de la Empresa:</label>
+            <input id="nomepresa" class="input-field" type="text" formControlName="nomepresa" [(ngModel)]="miEmpresa.nomepresa">
+          </div>
+    
+          <div class="form-group">
+            <label class="label" for="ciudadempresa">Ciudad de la Empresa:</label>
+            <input id="ciudadempresa" class="input-field" type="text" formControlName="ciudadempresa" [(ngModel)]="miEmpresa.ciudadempresa">
+          </div>
+        </div>
+    
+        <div class="column">
+          <div class="form-group">
+            <label class="label" for="dirempresa">Dirección de la Empresa:</label>
+            <input id="dirempresa" class="input-field" type="text" formControlName="dirempresa" [(ngModel)]="miEmpresa.dirempresa">
+          </div>
+    
+          <div class="form-group">
+            <label class="label" for="paisempresa">País de la Empresa:</label>
+            <input id="paisempresa" class="input-field" type="text" formControlName="paisempresa" [(ngModel)]="miEmpresa.paisempresa">
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="boton-final">Guardar</button>
+      </form>
+      
+
+    </div>
+    
+    <div class="container">
+   
+        <h2>Mis Proveedores</h2>
+               
+        <table class="tabla-proveedores">
+          <tr>
+            <th>Nombre </th>
+            <th>Teléfono </th>
+            <th>Correo</th>
+            <th>Dirección </th>
+            <th>Ciudad </th>
+            <th>País</th>
+          </tr>
+
+          <tr *ngFor="let prov of miEmpresa.proveedor">
+            <td>{{prov.nomproveedor}}</td>
+            <td>{{prov.telefproveedor}}</td>
+            <td>{{prov.correoproveedor}}</td>
+            <td>{{prov.direccionproveedor}}</td>
+            <td>{{prov.ciuproveedor}}</td>
+            <td>{{prov.paisproveedor}}</td>
+          </tr>
+        </table>
+      
+      <div>
+
+        <button class="boton-final" (click)="PreparandoRegistroProveedor()">Agregar Proveedor</button>
+
+        
+        <form class="formulario-proveedor" *ngIf="registrarProveedor" [formGroup]="registroProveedorForm" (ngSubmit)="creandoProveedor()">
+          
+          <h2>Registra tu proveedor</h2>
+          <!-- Campos específicos -->
+          <div class="colummas">
+          <input class="entrada-infor" formControlName="nomproveedor" placeholder="Nombres" required>
+          <input class="entrada-infor" formControlName="telefproveedor" placeholder="099" required>
+          <input class="entrada-infor" formControlName="correoproveedor" placeholder="Correo" required>
+          <input class="entrada-infor" formControlName="direccionproveedor" placeholder="Direccion" required>
+          <input class="entrada-infor" formControlName="ciuproveedor" placeholder="Ciudad" required>
+          <input class="entrada-infor" formControlName="paisproveedor" placeholder="Pais" required>
+      </div>
+          <div class="botones">
+            <button class="boton-final" type="submit" [disabled]="!registroProveedorForm.valid">Registrar Proveedor</button>
+            <button class="boton-final" (click)="CancelarAccion()" >Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  

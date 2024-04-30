@@ -1,0 +1,110 @@
+<div class="Contenedor-Total">
+  <button class="btn-agregar" (click)="habilitarAgregarPlan()">Agregar Cliente</button>
+
+  <div class="planes-lista-contenedor">
+        <table class="planes-table">
+          <caption><h2>Lista de Planes</h2></caption>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th>Costo</th>
+              <th>Requisitos</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let plan of todosPlan">
+              <td>{{ plan.nomplan }}</td>
+              <td>{{ plan.descripccion }}</td>
+              <td>{{ plan.costo }}</td>
+              <td>{{ plan.requisitosplan }}</td>
+              <td>
+                <button class="edit-button" (click)="editarPlan(plan.idplan, plan)">Editar</button>
+                <button class="delete-button" (click)="borradorPlan(plan.idplan)">Borrar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    
+    
+     <!-- Botón para mostrar el formulario -->
+    
+    <div class="modal" [ngClass]="{'show': habilitarRegistroPlan}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form [formGroup]="formularioCrearPlan" (submit)="creadorPlan()">
+              <div class="modal-header">
+                <h2 class="modal-title">Registro de Plan </h2>
+                <button type="button" class="close" (click)="cancelarAgregarPlan()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="nomplan">Nombre:</label>
+                  <input type="text" class="form-control" id="nomplan" formControlName="nomplan" required>
+                </div>
+                <div class="form-group">
+                  <label for="descripccion">Descripcion:</label>
+                  <input type="text" class="form-control" id="descripccion" formControlName="descripccion" required>
+                </div>
+                <div class="form-group">
+                    <label for="costo">Costo:</label>
+                    <input type="number" class="form-control" id="costo" formControlName="costo" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="requisitosplan">Requisitos:</label>
+                    <input type="text" class="form-control" id="requisitosplan" formControlName="requisitosplan" required>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn-secondary" (click)="cancelarAgregarPlan()">Cerrar</button>
+                <button type="submit" class="btn-primary" [disabled]="!formularioCrearPlan.valid">Guardar Plan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+      <div class="modal" [ngClass]="{'show': habilitarActualizaPlan}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form [formGroup]="formActualizaPlan" (submit)="actualizacionCliente()">
+              <div class="modal-header">
+                <h2 class="modal-title">Actualizacion de Plan </h2>
+                <button type="button" class="close" (click)="cancelarAgregarPlan()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="nomplan">Nombre:</label>
+                  <input type="text" class="form-control" id="nomplan" formControlName="nomplan" required>
+                </div>
+                <div class="form-group">
+                  <label for="descripccion">Descripcion:</label>
+                  <input type="text" class="form-control" id="descripccion" formControlName="descripccion" required>
+                </div>
+                <div class="form-group">
+                    <label for="costo">Costo:</label>
+                    <input type="number" class="form-control" id="costo" formControlName="costo" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="requisitosplan">Requisitos:</label>
+                    <input type="text" class="form-control" id="requisitosplan" formControlName="requisitosplan" required>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn-secondary" (click)="cancelarAgregarPlan()">Cerrar</button>
+                <button type="submit" class="btn-primary" [disabled]="!formActualizaPlan.valid">Actualizar Plan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+      

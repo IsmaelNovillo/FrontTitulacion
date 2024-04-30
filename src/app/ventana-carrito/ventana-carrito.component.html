@@ -1,0 +1,16 @@
+<!-- ventana-flotante.component.html -->
+<div class="ventana-flotante">
+    <h3 class="prod">Carrito</h3>
+    <div class="prod">
+
+      <li class="productos-agregados" *ngFor="let item of cartService.getItems()">
+        {{ item.producto.nombre }} - Cantidad: {{ item.cantidad }}- Precio ${{item.producto.precio}}
+        
+      </li>
+    
+  </div>
+  <div class="prod">
+    <button *ngIf="tieneProductos()==true" routerLink="/paneles/carrito" >Ir a Pagar</button>
+  </div>
+  </div>
+  

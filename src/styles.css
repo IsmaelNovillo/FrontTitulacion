@@ -1,0 +1,12 @@
+h1, h2, h3, p, a, span{
+    font-family: Helvetisich, sans-serif;
+}
+
+span{
+    font-size: 13px;
+}
+label{
+    font-family: Helvetisich, sans-serif;
+    font-size: 14px; 
+}
+

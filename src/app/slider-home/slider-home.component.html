@@ -1,0 +1,14 @@
+<!-- slider.component.html -->
+<div class="Slider">
+    <div  *ngFor="let image of imagen; let i = index">
+      <a [routerLink]="image.route" *ngIf="imgenActual(i)">
+        <img class="imagen-slider" [src]="image.src" alt="Slider image">
+      </a>
+    </div>
+    <div class="contenedor-botones">
+    <button class="boton-siguiente" (click)="siguienteImagen()">Anterior</button>
+    <button class="boton-anterior" (click)="anteriorImagen()">Siguiente</button>
+</div>
+</div>
+  
+  

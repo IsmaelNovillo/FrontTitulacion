@@ -1,0 +1,77 @@
+<!-- imagenes-control.component.html -->
+<div class="container">
+  <h1>Lista de Imagenes</h1>
+  <div class="imagenes">
+    <div class="imagen" *ngFor="let img of Imagenes">
+      <div class="imagen-info">
+        <h3>Producto {{ img.idproducto }}</h3>
+        <p><strong>Nombre:</strong> {{ img.nombreimagen }}</p>
+        <button class="btn-accion" (click)="editarImg(img.idimagen,img)">Editar</button>
+        <button class="btn-accion" (click)="borradorImagen(img.idimagen)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-agregar" (click)="habilitarAgregar()">Agregar Imagen</button>
+
+  <!-- Plantilla para Agregar Imagenes-->
+
+  <div class="modal" [ngClass]="{'show': habilitarRegImg}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form [formGroup]="formularioImagen" (submit)="creadorImagen()">
+          <div class="modal-header">
+            <h2 class="modal-title">Registro de Imagen</h2>
+            <button type="button" class="close" (click)="cancelarAgregar()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="nombreimagen">Nombre de Imagen:</label>
+              <input type="text" class="form-control" id="nombreimagen" formControlName="nombreimagen" required>
+            </div>
+            <div class="form-group">
+              <label for="idimagen">Id Imagen:</label>
+              <input type="text" class="form-control" id="idimagen" formControlName="idimagen" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-secondary" (click)="cancelarAgregar()">Cerrar</button>
+            <button type="submit" class="btn-primary" [disabled]="!formularioImagen.valid">Registrar Imagen</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Plantilla para Actualizar Imagen -->
+  <div class="modal" [ngClass]="{'show': plantillaActualizar}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form [formGroup]="formularioActualizaImagen" (submit)="actualizacionImagen()">
+          <div class="modal-header">
+            <h2 class="modal-title">Editor de Imagen</h2>
+            <button type="button" class="close" (click)="cancelarAgregar()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="nombreimagen">Nombre de Imagen:</label>
+              <input type="text" class="form-control" id="nombreimagen" formControlName="nombreimagen" required>
+            </div>
+            <div class="form-group">
+              <label for="idimagen">Id Imagen:</label>
+              <input type="text" class="form-control" id="idimagen" formControlName="idimagen" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-secondary" (click)="cancelarAgregar()">Cerrar</button>
+            <button type="submit" class="btn-primary" [disabled]="!formularioActualizaImagen.valid">Actualizar Imagen</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

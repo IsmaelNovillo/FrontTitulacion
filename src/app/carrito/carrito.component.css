@@ -1,0 +1,162 @@
+/* Ajustes del banner de navegación */
+.main-container {
+  padding: 0px;
+    display: flex;
+  }
+  
+  .navigation-banner {
+    background-color: #FFA711;
+    color: white;
+    padding: 20px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  }
+  button{
+    text-align: left;
+    font-weight: bolder;
+    background-color: #FFA711;
+    color: rgb(70, 71, 70);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top:  20px;
+    font-family: Helvetisich, sans-serif;
+    font-size: 14px;
+  }
+  
+ 
+  
+  .navigation-links a {
+    color:  rgb(70, 71, 70);
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  .boton-desplegable{
+    background-color:#FFA711;
+    color: rgb(70, 71, 70);
+    cursor: pointer;
+    
+  }
+
+  .flecha{
+    margin-left: 10px;
+  }
+  .submenu {
+    position: relative;
+  }
+  
+  .submenu-content {
+    display: none;
+    position: relative;
+    background-color: #FFA711;
+    min-width: 5px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    z-index: 1;
+    padding: 10px;
+    
+   
+  }
+  
+  .submenu:hover .submenu-content {
+    display:block;
+  }
+
+  .contenedor-destino{
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-top: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+    width: 60%;
+    margin: 10px auto;
+    }
+
+  /* Ajustes del Area de Productos agregados al carrito */
+    
+    .botones-de-accion{
+
+      color: white;
+      background-color: #FA8F42;
+      text-align: center;
+      height: 70px;
+      width: 200px;
+      padding: auto;
+      vertical-align: middle;
+      justify-content: center;
+      border-radius: 30px;
+      
+    }
+    .botones-de-confirmacion{
+
+      color: white;
+      background-color: red;
+      text-align: center;
+      height: 70px;
+      width: 200px;
+      padding: auto;
+      vertical-align: middle;
+      justify-content: center;
+      border-radius: 30px;
+      
+    }
+    .boton-elim-produ{
+      background-color: #FA8F42;
+      color: white;
+      justify-content: center;
+      margin: 10px;
+    }
+
+    .contenedor-carrito{
+      justify-content: center;
+      text-align: center;
+      text-align-last: center;
+      font-family: Helvetisich, sans-serif;
+      font-size: 18px;
+      align-items: center;
+      vertical-align: middle;
+      border-radius: 2px;
+      border-color: #FFA711;
+      border: #FFA711;
+      width: 850px;
+      
+    }
+   
+    .contenedor-boton-accion{
+      width: 100%;
+      justify-content: center;
+    }
+    .total-pagar{
+      font-size: 20px;
+      font-family: Helvetisich, sans-serif;
+      width: 100%;
+      text-align: center;
+      padding-right: 150px;
+      font: bold;
+    }
+    .contenedor-botones{
+      align-items: center;
+      justify-content: center;    
+      width: 230px;
+      text-align: center;
+      margin: 5px;
+      padding: 25px;
+      font-size: 18px;
+      
+    }
+.caja-total{
+  height: 70px;
+  width: 200px;
+  text-align: center;
+  vertical-align: baseline;
+  font-size: 22px;
+  font-family: Helvetisich, sans-serif;
+  font: bold;
+  color: red;
+}

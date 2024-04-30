@@ -1,0 +1,12 @@
+<!-- detalle-producto.component.html -->
+<div class="detalle-producto">
+<div> <img class="imagenUrl" src="{{producto.imagenUrl}}" alt=""></div>
+<div>
+    <h2 class="nombre">{{ producto.nombre }}</h2>
+    <p class="precio">Precio: {{ producto.precio | currency }}</p>
+    <p class="descripcion">{{ producto.descripcion }}</p>
+    <!-- Agrega más detalles según tus necesidades -->
+  </div>
+  <button (click)="addToCart(producto)">Agregar al Carrito</button>
+  </div>
+  

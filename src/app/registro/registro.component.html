@@ -1,0 +1,74 @@
+<div class="registrar-container">
+  <div class="img-container">
+    <img src="assets/logo-login.png" alt="Logo de registro">
+  </div>
+  <h2>Registro</h2>
+  <p>Es rápido y fácil</p>
+
+  <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+
+    <div class="name-container">
+      <div class="grupo-name">
+        <input formControlName="username" type="text" id="nombres" placeholder="Nombres" required>
+      </div>
+
+      <div class="grupo-name">
+        <input formControlName="apellido" type="text" placeholder="Apellidos" required>
+      </div>
+    </div>
+
+    <div>
+      <input formControlName="email" type="email" placeholder="Correo Electrónico" required>
+      <div *ngIf="usuarioForm.get('email')?.invalid && (usuarioForm.get('email')?.dirty || usuarioForm.get('email')?.touched)">
+        <span *ngIf="usuarioForm.get('email')?.errors?.['required']" class="error-message">El correo electrónico es obligatorio.</span>
+        <span *ngIf="usuarioForm.get('email')?.errors?.['email']" class="error-message">El formato del correo electrónico es inválido.</span>
+      </div>
+      
+      <div class="password-container">
+        <input formControlName="password" [type]="hidePassword ? 'password' : 'text'" placeholder="Contraseña Nueva" required>
+        <span class="show-password-icon" (click)="verContrasena()">
+          <i class="fas fa-eye" *ngIf="hidePassword"></i>
+          <i class="fas fa-eye-slash" *ngIf="!hidePassword"></i>
+        </span>
+      </div>
+      <div *ngIf="usuarioForm.get('password')?.invalid && (usuarioForm.get('password')?.dirty || usuarioForm.get('password')?.touched)">
+        <span *ngIf="usuarioForm.get('password')?.errors?.['required']" class="error-message">La contraseña es obligatoria.</span>
+        <span *ngIf="usuarioForm.get('password')?.errors?.['pattern']" class="error-message">La contraseña debe contener al menos una letra mayúscula, un número y tener un mínimo de 8 caracteres.</span>
+      </div>
+      
+
+      <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+      <div class="name-container">
+        <div class="grupo-name">
+          <input  type="number" min="1" max="31" placeholder="Día" required>
+        </div>
+        <div class="grupo-name">
+          <input  type="number" min="1" max="12" placeholder="Mes" required>
+        </div>
+        <div class="grupo-name">
+          <input  type="number" min="1900" max="2100" placeholder="Año" required>
+        </div>
+      </div>
+
+      <div class="grupo-genero">
+        <label>Género:</label>
+        <div class="genero-buttons">
+          <button type="button" (click)="selectGenero('masculino')" [class.selected]="genero === 'masculino'">Masculino</button>
+          <button type="button" (click)="selectGenero('femenino')" [class.selected]="genero === 'femenino'">Femenino</button>
+          <button type="button" (click)="selectGenero('otro')" [class.selected]="genero === 'otro'">Otro</button>
+        </div>
+        <input type="hidden" [value]="genero" required>
+      </div>
+
+      <p>Al hacer clic en "Registrarte" aceptas nuestras 
+        <a class="links" href="https://www.facebook.com.com" target="_blank">Condiciones</a>, la 
+        <a class="links" href="https://www.facebook.com.com" target="_blank">Política de Privacidad</a>
+        y la <a class="links" href="https://www.facebook.com.com" target="_blank">Política de Cookies.</a>
+        Es posible que te enviemos notificaciones por SMS, que puedes desactivar cuando quieras. 
+      </p>
+
+      <button type="submit" [disabled]="!usuarioForm.valid">Registrarte</button>
+    </div>
+
+  </form>
+</div>

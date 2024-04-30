@@ -1,0 +1,59 @@
+.plan-container{
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    margin: 5px auto;
+    padding-top: 2px;
+
+}
+h1, h3, h2  {
+    text-align: center;
+}
+header{
+    padding: 0px;
+    margin: 0px;
+}
+
+p{
+    text-align: justify;
+}
+
+.plan-selector{
+    background-color: #f5d59d;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    margin: 5px auto;
+}
+.planes-container{
+    display: flex;
+
+}
+
+.img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+img {
+    width: 100px;
+    height: 100px;
+    align-content: center;
+  }
+
+button {
+    background-color: #FA8F42;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    
+}
+button:hover {
+    background-color: #FFA711;
+}

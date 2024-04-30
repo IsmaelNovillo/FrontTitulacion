@@ -1,0 +1,19 @@
+<div class="empresas-container">
+    <div *ngFor="let empresa of empresas" class="empresas-mostrables">
+      <div class="imgEmpresas">
+        <!-- Aquí puedes mostrar la imagen de la empresa si tienes una propiedad en tu modelo que la contenga -->
+        <!-- <img [src]="empresa.imagenUrl" alt="{{ empresa.nomepresa }}"> -->
+      </div>
+      <div class="empresas-info">
+        <div class="empresas-nombre">{{ empresa.nomepresa }}</div>
+        <div class="empresas-direccion">Dirección: {{ empresa.dirempresa }}</div>
+        <div class="empresas-localidad">Ciudad: {{ empresa.ciudadempresa }}</div>
+        <div class="producto-localidad">País: {{ empresa.paisempresa }}</div>
+        <!-- Puedes añadir más campos según tus necesidades -->
+        <div class="empresas-acciones">
+          <!-- Aquí puedes agregar botones u otras acciones relacionadas con la empresa -->
+          <button (click)="mostrarDetalles(empresa.proveedor)">Detalles</button>
+        </div>
+      </div>
+    </div>
+  </div>

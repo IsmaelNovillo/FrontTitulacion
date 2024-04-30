@@ -1,0 +1,50 @@
+<div class="main-container">
+  <div class="navigation-banner">
+    <div class="navigation-links">
+      <button  routerLink="/inicio">INICIO </button>
+      <button >PROMOCIONES </button>
+      <Button >CARTERA <span class="flecha"> &#9660; </span> </Button>
+      <button>PRODUCTOS <span class="flecha"> &#9660; </span> </button>
+      <div class="submenu">
+         <Button type="menu" class="boton-desplegable">TIENDA INTERNA <span class="flecha"> &#9660; </span> </Button>
+        <div class="submenu-content">
+          <button routerLink="/productos">Productos</button>
+          <button>Informacion Bancaria</button>
+          <button>Soporte de Pagos</button>
+          <button>Lista de Soporte</button>
+
+      
+        </div>
+      
+      </div>
+    </div>
+    <button (click)="cerrarSession()">CERRAR SESION</button>
+  </div>
+
+ 
+
+<div class="productos-container">
+<div *ngFor="let producto of (resultados$ )" class="producto-carrito">
+    <div class="producto-info">
+      <div class="imagen-producto">
+        <img class="imgProduc" src="{{producto.imagenUrl}}" alt="">
+      </div>
+      <div class="producto-nombre">{{ producto.nombre }}</div>
+      <div class="producto-precio">{{ producto.precio | currency }}</div>
+      <div class="producto-descripcion">{{ producto.descripcion }}</div>
+      <div class="contacto">{{producto.contacto}}</div>
+      <p class="cantidad"> Cantidad:</p>
+      <input class="cantidadAgregar" type="number" [(ngModel)]="producto.cantidadAgregar" min="1" max="10">
+    </div>
+  
+    <div class="producto-acciones">
+      <button class="boton-final" (click)="addToCart(producto)">Agregar al Carrito</button>
+      <button class="boton-final" (click)="abrirDetalle(producto)">Ver Detalles</button>
+    </div>
+  </div>
+  </div>
+  <app-ventana-carrito></app-ventana-carrito>
+<app-detalle-producto-flotante></app-detalle-producto-flotante>
+  
+</div>
+

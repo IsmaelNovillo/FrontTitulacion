@@ -1,0 +1,92 @@
+<div class="Contenedor-Total">
+    <button class="btn-agregar" (click)="habilitarAgregarDetalleProducto()">Agregar Detalle de Producto</button>
+  
+    <div class="detalleProduc-list-container">
+      <table class="detalleProduc-table">
+        <caption>Lista de Detalles de Productos</caption>
+        <thead>
+          <tr>
+            <th>Descripccion</th>
+            <th>Disponibilidad</th>
+            
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detalle of todosLosDetallesProduc">
+            <td>{{ detalle.descripcion }}</td>
+            <td>{{ detalle.disponibilidad }}</td>
+           
+            <td>
+              <button class="edit-button" (click)="editarDetalleProducto(detalle.id, detalle)">Editar</button>
+              <button class="delete-button" (click)="borradorDetalleProducto(detalle.id)">Borrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  
+  
+   <!-- Botón para mostrar el formulario -->
+  
+  <div class="modal" [ngClass]="{'show': habilitarRegistroDetalleProduc}" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form [formGroup]="formularioCrearDetalleProduc" (submit)="creadorDetalleProducto()">
+            <div class="modal-header">
+              <h2 class="modal-title">Registro detalle de Producto </h2>
+              <button type="button" class="close" (click)="cancelarAgregarDetalleProducto()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="descripcion">Descripccion:</label>
+                <input type="text" class="form-control" id="descripcion" formControlName="descripcion" required>
+              </div>
+              <div class="form-group">
+                <label for="disponibilidad">Disponibilidad:</label>
+                <input type="number" class="form-control" id="disponibilidad" formControlName="disponibilidad" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn-secondary" (click)="cancelarAgregarDetalleProducto()">Cerrar</button>
+              <button type="submit" class="btn-primary" [disabled]="!formularioCrearDetalleProduc.valid">Registrar Detalle de Producto</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal" [ngClass]="{'show': habilitarActualizaDetalleProduc}" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form [formGroup]="formActualizaDetalleProduc" (submit)="actualizacionDetalleProducto()">
+            <div class="modal-header">
+              <h2 class="modal-title">Actualizacion de Cliente </h2>
+              <button type="button" class="close" (click)="cancelarAgregarDetalleProducto()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                  <label for="descripcion">Descripccion:</label>
+                  <input type="text" class="form-control" id="descripcion" formControlName="descripcion" required>
+                </div>
+                <div class="form-group">
+                  <label for="disponibilidad">Disponibilidad:</label>
+                  <input type="number" class="form-control" id="disponibilidad" formControlName="disponibilidad" required>
+                </div>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn-secondary" (click)="cancelarAgregarDetalleProducto()">Cerrar</button>
+              <button type="submit" class="btn-primary" [disabled]="!formActualizaDetalleProduc.valid">Actualizar Cliente</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+    

@@ -1,0 +1,44 @@
+.Slider{
+width: 100%;
+height: 240px;
+
+}
+.imagen-slider{
+    width: 100%;
+    height: auto;
+}
+.boton-siguiente{
+    background-color: whitesmoke;
+    color: gray;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 80px;
+    position: absolute; 
+    bottom: 450px; 
+    right: 1600px;
+    z-index: 1000;
+
+}
+.boton-anterior{
+    background-color: whitesmoke;
+    color: gray;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 80px;
+    position: absolute; 
+    bottom: 450px; 
+    right: 20px;
+    z-index: 1000;
+    
+}
+.contenedor-botones{
+
+    display: flex;
+    justify-content: center;
+
+
+}

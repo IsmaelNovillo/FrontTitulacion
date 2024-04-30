@@ -1,0 +1,17 @@
+<div class="chat-popup">
+    <div class="chat-header">
+      <h3>Chat con Soporte</h3>
+      <button class="close-button" (click)="cerrarChat()">Cerrar</button>
+    </div>
+    <div class="chat-messages">
+      <div *ngFor="let message of messages" class="message">
+        <span class="sender">{{ message.sender }}:</span>
+        <span class="content">{{ message.content }}</span>
+      </div>
+    </div>
+    <div class="chat-input">
+      <textarea placeholder="Escribe tu mensaje..." [(ngModel)]="newMessage"></textarea>
+      <button (click)="enviarMensaje()">Enviar</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,22 @@
+<!-- empresa-registro.component.html -->
+
+
+<div class="registrar-empresa-container">
+  <h2>Registro de Empresa</h2>
+  <h3>Ingresa los campos correspondientes de tu empresa</h3>
+  <form [formGroup]="registroEmpresaForm" (ngSubmit)="GuardandoEmpresa()">
+    <!-- Campos específicos -->
+    <input class="entrada-infor" formControlName="nomepresa" placeholder="Nombre de la Empresa" required>
+    <input class="entrada-infor" formControlName="dirempresa" placeholder="Dirección de la Empresa" required>
+
+    <div class="Localidad-Empresa">
+      <input class="entrada-infor" formControlName="ciudadempresa" placeholder="Ciudad de la Empresa" required>
+      <input class="entrada-infor" formControlName="paisempresa" placeholder="País de la Empresa" required>
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="!registroEmpresaForm.valid">Registrar Empresa</button>
+    </div>
+  </form>
+</div>
+

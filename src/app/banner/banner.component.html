@@ -1,0 +1,33 @@
+<!--  Banner de Navegacion, menu de opciones-->
+
+<div class="main-container">
+  <div class="navigation-banner">
+    <div class="navigation-links">
+      <button  routerLink="/inicio">INICIO </button>
+      <button >PROMOCIONES </button>
+      <Button >CARTERA <span class="flecha"> &#9660; </span> </Button>
+      <button>PRODUCTOS <span class="flecha"> &#9660; </span> </button>
+      <div class="submenu">
+         <Button type="menu" class="boton-desplegable">TIENDA INTERNA <span class="flecha"> &#9660; </span> </Button>
+        <div class="submenu-content">
+          <button routerLink="/productos">Productos</button>
+          <button>Informacion Bancaria</button>
+          <button>Soporte de Pagos</button>
+          <button>Lista de Soporte</button>
+
+      
+        </div>
+      
+      </div>
+    </div>
+    <button (click)="cerrarSession()">CERRAR SESION</button>
+  </div>
+
+
+      <div class="contenedor-destino">
+
+        <app-login *ngIf="componenteActual === 'Login'"></app-login>
+        
+        <!-- Agrega más casos según sea necesario -->
+      </div>
+</div>

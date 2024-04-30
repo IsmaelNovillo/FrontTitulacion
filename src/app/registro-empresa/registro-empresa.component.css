@@ -1,0 +1,78 @@
+/* empresa-registro.component.css */
+
+.registrar-empresa-container {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 500px;
+    margin: 50px auto;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    align-self: center;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    padding: 5px;
+    margin-top: 0px;
+    
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #666;
+}
+.entrada-infor{
+margin-top: 5px;
+
+}
+
+.Localidad-Empresa{
+    display: flex;
+
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #FA8F42;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 30%;
+    margin-top: 10px;
+}
+.Caja-botones{
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: #FFA711;
+}
+
+.links {
+    color: #333;
+}

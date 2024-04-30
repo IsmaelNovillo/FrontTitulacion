@@ -1,0 +1,20 @@
+<header>
+    
+</header>
+
+<body class="cuerpoContenedor">
+<router-outlet>
+  
+</router-outlet>
+
+</body>
+<footer>  
+<app-mensajes-flotantes>
+  
+</app-mensajes-flotantes>
+
+<app-chat-soporte *ngIf="mostrarChat" (close)="cerrarChat()">
+</app-chat-soporte>
+</footer>
+
+

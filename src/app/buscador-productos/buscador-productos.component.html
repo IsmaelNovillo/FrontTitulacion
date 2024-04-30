@@ -1,0 +1,13 @@
+<div class="contenedor-barra-buscar">
+<form class="elemento-buscador" (ngSubmit)="buscarProductos()" #buscarForm="ngForm">
+  <div>
+  <input class="texto-buscado" type="text" placeholder="Buscar productos" [(ngModel)]="terminoBusqueda" name="terminoBusqueda" required>
+</div>
+<div>
+  <button type="submit">Buscar</button>
+</div>
+</form>
+</div>
+
+
+  

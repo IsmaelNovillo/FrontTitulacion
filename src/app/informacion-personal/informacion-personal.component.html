@@ -1,0 +1,131 @@
+
+<div class="main-container">
+  <div class="navigation-banner">
+    <div class="navigation-links">
+      <button routerLink="/inicio" >INICIO </button>
+      <button >PROMOCIONES </button>
+      <button *ngIf="usuarioEsEmpresa" routerLink="/paneles/mi-empresa" >MI EMPRESA</button>
+      <Button >CARTERA <span class="flecha"> &#9660; </span> </Button>
+      <button>PRODUCTOS <span class="flecha"> &#9660; </span> </button>
+      <div class="submenu">
+         <Button type="menu" class="boton-desplegable">TIENDA INTERNA <span class="flecha"> &#9660; </span> </Button>
+        <div class="submenu-content">
+          <button routerLink="/productos">Productos</button>
+          <button>Informacion Bancaria</button>
+          <button>Soporte de Pagos</button>
+          <button>Lista de Soporte</button>
+          <button *ngIf="usuarioEsEmpresa" routerLink="/paneles/registrar-productos"  >Agregar Productos</button>
+          <button *ngIf="usuarioEsEmpresa" routerLink="/paneles/mis-productos"  >Mis Productos</button>
+        </div>
+      
+      </div>
+    </div>
+    <button (click)="cerrarSession()" >CERRAR SESION</button>
+  </div>
+<!-- informacion-personal.component.html -->
+    <div *ngIf="actualizarPerfil" class="informacion-personal-container">
+
+        <div class="img-container">
+          <img src="assets/fotoPerfil.jpg" alt="Imagen de perfil">
+        </div>
+        <h2>Información Personal</h2>
+       
+
+      <form [formGroup]="actualizaInfoUserForm" (ngSubmit)="actualizandoCliente()" >
+       <div class="form-container">
+        <div class="column">
+
+          <div class="form-group">
+            <label class="label" for="rucCliente">Cedula:</label>
+            <input id="rucCliente" class="input-field" type="number" formControlName="rucCliente" [(ngModel)]="clienteUser.rucCliente">
+          </div>
+
+          <div class="form-group">
+            <label class="label" for="nomCliente">Nombres:</label>
+            <input id="nomCliente" class="input-field" type="text" formControlName="nomCliente" [(ngModel)]="clienteUser.nomCliente">
+          </div>
+    
+          <div class="form-group">
+            <label class="label" for="apelCliente">Apellidos:</label>
+            <input id="apelCliente" class="input-field" type="text" formControlName="apelCliente" [(ngModel)]="clienteUser.apelCliente">
+          </div>
+        </div>
+    
+        <div class="column">
+          <div class="form-group">
+            <label class="label" for="dirCliente">Dirección:</label>
+            <input id="dirCliente" class="input-field" type="text" formControlName="dirCliente" [(ngModel)]="clienteUser.dirCliente">
+          </div>
+    
+          <div class="form-group">
+            <label class="label" for="telCliente">Telefono:</label>
+            <input id="telCliente" class="input-field" type="number" formControlName="telCliente" [(ngModel)]="clienteUser.telCliente">
+          </div>
+
+          <div class="form-group">
+            <label class="label" for="mailCliente">Correo:</label>
+            <input id="mailCliente" class="input-field" type="text" formControlName="mailCliente" [(ngModel)]="clienteUser.mailCliente">
+          </div>
+
+        </div>
+      </div>
+      <button type="submit" class="boton-final">Actualizar</button>
+      </form>
+      
+
+    </div>
+
+    <div *ngIf="crearPerfil" class="informacion-personal-container">
+
+        <div class="img-container">
+          <img src="assets/fotoPerfil.jpg" alt="Imagen de perfil">
+        </div>
+        <h2>Información Personal</h2>
+    
+      <form [formGroup]="crearClienteForm" (ngSubmit)="creandoCliente()" >
+       <div class="form-container">
+        <div class="column">
+
+          <div class="form-group">
+            <label class="label" for="rucCliente">Cedula:</label>
+            <input id="rucCliente" class="input-field" type="number" formControlName="rucCliente" >
+          </div>
+
+          <div class="form-group">
+            <label class="label" for="nomCliente">Nombres:</label>
+            <input id="nomCliente" class="input-field" type="text" formControlName="nomCliente">
+          </div>
+    
+          <div class="form-group">
+            <label class="label" for="apelCliente">Apellidos:</label>
+            <input id="apelCliente" class="input-field" type="text" formControlName="apelCliente">
+          </div>
+        </div>
+    
+        <div class="column">
+          <div class="form-group">
+            <label class="label" for="dirCliente">Dirección:</label>
+            <input id="dirCliente" class="input-field" type="text" formControlName="dirCliente">
+          </div>
+    
+          <div class="form-group">
+            <label class="label" for="telCliente">Telefono:</label>
+            <input id="telCliente" class="input-field" type="number" formControlName="telCliente">
+          </div>
+
+          <div class="form-group">
+            <label class="label" for="mailCliente">Correo:</label>
+            <input id="mailCliente" class="input-field" type="text" formControlName="mailCliente">
+          </div>
+
+        </div>
+      </div>
+      <button type="submit" class="boton-final">Guardar</button>
+      </form>
+      
+
+    </div>
+
+   
+
+  </div>

@@ -1,0 +1,44 @@
+/* carrito-flotante.component.css y ventana-flotante.component.css */
+.ventana-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+ 
+ }
+  
+.prod{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+}
+h3{
+  padding: 5px;
+  margin: 0px;
+  font-family: Helvetisich, sans-serif;
+  color: #FA8F42;
+}
+button{
+  margin: 5px;
+  padding: 10px;
+  background-color: #FA8F42;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+
+}
+button:hover {
+  background-color: #FFA711;
+}
+li{
+  font-family: Helvetisich, sans-serif;
+}

@@ -1,0 +1,55 @@
+
+<header  class="encabezado-contenedor">
+  <div class="encabezado">
+    <!-- Otros elementos dentro del encabezado -->
+  </div>
+  
+
+    <div class="img-contenedor">    
+    <img src="assets/logo-login.png"  routerLink="/inicio" alt="">
+  </div>
+  <div class="menu-contenedor">
+    <button class="botonHome" routerLink="/inicio" >Inicio</button>
+    <!-- app.component.html u otro archivo donde quieras agregar el componente de búsqueda -->
+  <app-buscador-productos></app-buscador-productos>
+  
+    
+  </div>
+  <div class="sesion-contenedor">
+    <img class="perfilsesion" src="assets/fotoPerfil.jpg" alt="">
+    <div class="Saludo" *ngIf="username; else loginOrRegister">
+      ¡Hola, {{ username }}!
+      <!-- Enlace a la página de perfil -->
+      <a  routerLink="/paneles/perfil">Ir a mi perfil</a>
+      <button routerLink="/paneles/mi-empresa" class="botonPerfilEmpresa" *ngIf="usuarioEsEmpresa" >Perfil Empresa</button>
+    </div>
+    <ng-template #loginOrRegister>
+      <!-- Enlace a la página de inicio de sesión o registro -->
+      <button class="perfil-boton" routerLink="/seguridad/login-user">Iniciar</button> | <button class="perfil-boton" routerLink="/seguridad/registro">Registrarse</button>
+    </ng-template>
+  </div>
+  
+  </header>
+
+<body>
+<app-mensajes-flotantes></app-mensajes-flotantes>
+<div class="contenedor-home">
+<div class="contenedor-slider">
+<app-slider-home [imagen]="imagen" >  </app-slider-home>
+</div>
+<div class="contenedor-productos">
+  
+    <div class="contendor-botenes-opciones">
+    <app-categorias-flotantes>
+        </app-categorias-flotantes>
+    </div>
+<div class="area-productos">
+    <app-productos>
+
+    </app-productos>
+
+</div>
+
+</div>
+</div>
+</body>

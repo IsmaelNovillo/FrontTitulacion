@@ -1,0 +1,75 @@
+<head>
+  <!-- Otros elementos -->
+  <script src="https://checkout.placetopay.com/lightbox.min.js"></script>
+</head>
+
+<div class="main-container">
+  <div class="navigation-banner">
+    <div class="navigation-links">
+      <button  routerLink="/inicio">INICIO </button>
+      <button >PROMOCIONES </button>
+      <button *ngIf="usuarioEsEmpresa"  >MI EMPRESA</button>
+      <Button >CARTERA <span class="flecha"> &#9660; </span> </Button>
+      <button>PRODUCTOS <span class="flecha"> &#9660; </span> </button>
+      <div class="submenu">
+         <Button type="menu" class="boton-desplegable">TIENDA INTERNA <span class="flecha"> &#9660; </span> </Button>
+        <div class="submenu-content">
+          <button routerLink="/productos">Productos</button>
+          <button>Informacion Bancaria</button>
+          <button>Soporte de Pagos</button>
+          <button>Lista de Soporte</button>
+          <button *ngIf="usuarioEsEmpresa" routerLink="/paneles/registrar-productos"  >Registrar Productos</button>
+          <button *ngIf="usuarioEsEmpresa" routerLink="/paneles/mis-productos"  >Mis Productos</button>
+
+      
+        </div>
+      
+      </div>
+    </div>
+    <button (click)="cerrarSession()">CERRAR SESION</button>
+  </div>
+  <div class="contenedor-destino">
+    <div>
+    <table class="contenedor-carrito">
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Total</th>
+        <th>Acciones</th>
+      </tr>
+      <tr *ngFor="let item of items">
+        <td>{{ item.producto.nombre }}</td>
+        <td>{{ item.cantidad }}</td>
+        <td>{{ item.producto.precio | currency }}</td>
+        <td>{{ item.producto.precio * item.cantidad | currency }}</td>
+        <td>
+          <button class="boton-elim-produ" (click)="removeFromCart(item.producto.id)">Eliminar del Carrito</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+      
+
+
+      <div class="contenedor-botones" *ngIf="items.length > 0">
+        <p class="total-pagar">Total del Carrito: </p>
+        <div class="caja-total">{{ total | currency }}</div>
+        <div class="contenedor-boton-accion">
+          <button class="botones-de-accion" (click)="clearCart()">Vaciar Carrito</button>
+        </div>
+        <div class="contenedor-boton-accion">
+        <button class="botones-de-accion" routerLink="/inicio">Seguir Comprando </button>
+        </div>
+        <div class="contenedor-boton-accion">
+        <button class="botones-de-confirmacion"  (click)="iniciarPago()" >Confirmar Pago</button>
+      </div>
+      </div>
+   
+    
+    <!-- Agrega más casos según sea necesario -->
+  </div>
+</div>
+
+   
+

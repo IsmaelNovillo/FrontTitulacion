@@ -1,0 +1,70 @@
+<div class="productos-container">
+  
+  <div *ngIf="resultadosBusqueda$ | async as resultados; else todosLosProductos">
+    <div *ngFor="let producto of resultados" class="producto-carrito">
+    <div class="producto-info">
+      <div class="imagen-producto">
+        <img class="imgProduc" src="{{producto.imagenUrl}}" alt="">
+      </div>
+      <div class="producto-nombre">{{ producto.nombre }}</div>
+      <div class="producto-precio">{{ producto.precio | currency }}</div>
+      <div class="producto-descripcion">{{ producto.descripcion }}</div>
+      <div class="contacto">{{producto.contacto}}</div>
+      <p class="cantidad"> Cantidad:</p>
+      <input class="cantidadAgregar" type="number" [(ngModel)]="producto.cantidadAgregar" min="1" max="10">
+    </div>
+
+    <div class="producto-acciones">
+      <button (click)="addToCart(producto)">Agregar al Carrito</button>
+      <button (click)="abrirDetalle(producto)">Ver Detalles</button>
+    </div>
+  </div>
+  </div>
+</div>
+
+  <ng-template #todosLosProductos>
+   <div *ngFor="let producto of (productos$ | async)" class="producto-carrito">
+    <div class="producto-info">
+      <div class="imagen-producto">
+        <img class="imgProduc" src="{{producto.imagenUrl}}" alt="">
+      </div>
+      <div class="producto-nombre">{{ producto.nombre }}</div>
+      <div class="producto-precio">{{ producto.precio | currency }}</div>
+      <div class="producto-descripcion">{{ producto.descripcion }}</div>
+      <div class="contacto">{{producto.contacto}}</div>
+      <p class="cantidad"> Cantidad:</p>
+      <input class="cantidadAgregar" type="number" [(ngModel)]="producto.cantidadAgregar" min="1" max="10">
+    </div>
+
+    <div class="producto-acciones">
+      <button (click)="addToCart(producto)">Agregar al Carrito</button>
+      <button (click)="abrirDetalle(producto)">Ver Detalles</button>
+    </div>
+    </div>
+  </ng-template>
+
+  <h2>Bienvenidos a Productos</h2>
+<div class="mostrando-productos">
+  <div class="produc-container">
+    <div *ngFor="let producto of productosTotal" class="productos-mostrables">
+      <div class="img-producto">
+        <!-- Puedes mostrar la imagen del producto aquí si tienes una propiedad en tu modelo que la contenga -->
+        <img class="imgProduc" src="assets/logo-login.png">
+      </div>
+      <div class="producto-informacion">
+        <div class="producto-nombre"><h3>{{ producto.nomproducto }}</h3></div>
+        <div class="producto-precio">$ {{ producto.precioproducto }}</div>
+        <div class="producto-stock">Disponible: {{ producto.stockproducto }}</div>
+        <!-- Puedes agregar más campos según tus necesidades -->
+        <div class="producto-acciones">
+          <!-- Aquí puedes agregar botones u otras acciones relacionadas con el producto -->
+          <button>Detalles</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-ventana-carrito></app-ventana-carrito>
+<app-detalle-producto-flotante></app-detalle-producto-flotante>

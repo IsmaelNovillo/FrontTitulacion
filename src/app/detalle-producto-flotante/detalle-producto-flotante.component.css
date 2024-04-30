@@ -1,0 +1,24 @@
+/* detalle-producto-flotante.component.css */
+.detalle-producto-flotante {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 1000; /* Ajusta el índice z para que aparezca encima de otros elementos */
+  }
+  .cerrar-detalles-producto{
+    background-color: rgb(248, 85, 85);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: end;
+    flex: 1;
+    margin: 5px;
+  }

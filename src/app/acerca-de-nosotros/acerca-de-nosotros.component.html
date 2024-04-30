@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="section">
+      <h2>Quiénes Somos</h2>
+      <p>Quiénes Somos
+        En Fenix Corporate, nos dedicamos a ofrecer una experiencia de compra en línea excepcional para nuestros clientes. Nuestro compromiso con la innovación, la calidad y la satisfacción del cliente impulsa todo lo que hacemos.
+        
+        Desde nuestro inicio, nos hemos esforzado por ser más que una plataforma de compras en línea. Somos un destino donde los consumidores pueden encontrar una amplia selección de productos de alta calidad a precios competitivos, todo desde la comodidad de su hogar.
+        
+        Nuestro equipo está formado por personas apasionadas y dedicadas que buscan constantemente formas de mejorar y superar las expectativas de nuestros clientes. Valoramos la transparencia, la integridad y la confianza, y nos esforzamos por establecer relaciones sólidas y duraderas con cada uno de nuestros clientes.
+        
+        En Fenix Corporate, no solo vendemos productos; creamos experiencias, construimos conexiones y hacemos posible que tus necesidades y deseos se hagan realidad. Únete a nosotros en nuestro viaje para redefinir la forma en que compramos en línea y descubre todo lo que podemos ofrecerte.
+        
+        </p>
+    </div>
+  
+    <div class="section">
+      <h2>Nuestros Servicios</h2>
+      <p>Ofrecemos una amplia gama de servicios...</p>
+    </div>
+  
+    <div class="section">
+      <h2>Contacto</h2>
+      <p>Puedes contactarnos a través del siguiente formulario:</p>
+      
+      <form [formGroup]="formularioConsulta" (ngSubmit)="enviarConsulta()">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" formControlName="nombre" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" formControlName="correo" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" formControlName="mensaje" required></textarea>
+        </div>
+  
+        <button type="submit" [disabled]="formularioConsulta.invalid">Enviar</button>
+      </form>
+    </div>
+  </div>
+  

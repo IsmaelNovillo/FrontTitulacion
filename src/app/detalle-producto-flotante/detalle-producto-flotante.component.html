@@ -1,0 +1,8 @@
+<!-- detalle-producto-flotante.component.html -->
+<div class="detalle-producto-flotante" *ngIf="producto">
+    <app-detalle-producto [producto]="producto"></app-detalle-producto>
+    <div class="boton-contenedor">
+    <button class="cerrar-detalles-producto" (click)="cerrarDetalle()">Cerrar Detalle</button>
+  </div>
+  </div>
+  

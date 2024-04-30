@@ -1,0 +1,19 @@
+<div class="super-contenedor">
+<div class="boton-menu" (click)="estadoMenu()" #botonMenu>
+    <button class="flotante-boton">Categorías</button>
+    <div class="flotante-contenido" [style.display]="menuAbierto ? 'block' : 'none'" #flotanteContenido>
+      <a href="#" *ngFor="let categoria of categorias" (click)="SeleccionCategoria(categoria)">{{categoria}}</a>
+    </div>
+  </div>
+    <button routerLink="/empresas" class="opcion-boton" >Empresas</button>
+
+    <button routerLink="/empresas" class="opcion-boton" >Ofertas</button>
+
+    <button (click)=" condicionDeBoton()" class="opcion-boton" >Ser Socio</button>
+
+    <button routerLink="/seguridad/acerca-de" class="opcion-boton" >Dudas & Sugerencias</button>
+
+    <button (click)=" mostrarChat()"  class="opcion-boton" >Soporte </button>
+  </div>
+  
+  

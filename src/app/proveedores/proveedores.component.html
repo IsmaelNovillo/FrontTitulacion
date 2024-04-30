@@ -1,0 +1,65 @@
+<div>
+  <!--  Banner de Navegacion, menu de opciones-->
+
+<div class="main-container">
+  <div class="navigation-banner">
+    <div class="navigation-links">
+      <button  routerLink="/inicio">INICIO </button>
+      <button>PROMOCIONES </button>
+      <Button>CARTERA <span class="flecha"> &#9660; </span> </Button>
+      <button>PRODUCTOS <span class="flecha"> &#9660; </span> </button>
+      <div class="submenu">
+         <Button type="menu" class="boton-desplegable">TIENDA INTERNA <span class="flecha"> &#9660; </span> </Button>
+        <div class="submenu-content">
+          <button>Productos</button>
+          <button>Informacion Bancaria</button>
+          <button>Soporte de Pagos</button>
+          <button>Lista de Soporte</button>
+
+      
+        </div>
+      
+      </div>
+    </div>
+    <button (click)="cerrarSession()">CERRAR SESION</button>
+  </div>
+
+
+    <div class="contenedor-destino">
+      <div class="proveedores-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Teléfono</th>
+              <th>Correo</th>
+              <th>Dirección</th>
+              <th>Ciudad</th>
+              <th>País</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let proveedor of proveedores" class="proveedor-item">
+              <td>{{ proveedor.nomproveedor }}</td>
+              <td>{{ proveedor.telefproveedor }}</td>
+              <td>{{ proveedor.correoproveedor }}</td>
+              <td>{{ proveedor.direccionproveedor }}</td>
+              <td>{{ proveedor.ciuproveedor }}</td>
+              <td>{{ proveedor.paisproveedor }}</td>
+              <td>
+                <!-- Aquí puedes agregar botones u otras acciones relacionadas con el proveedor -->
+                <button (click)="mostrarDetalles(proveedor.id)">Detalles</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      
+      <!-- Agrega más casos según sea necesario -->
+    </div>
+</div>
+
+</div>
+

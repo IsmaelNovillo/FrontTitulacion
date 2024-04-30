@@ -1,0 +1,130 @@
+<div class="Contenedor-Total">
+  <button class="btn-agregar" (click)="habilitarAgregarCliente()">Agregar Cliente</button>
+
+  <div class="client-list-container">
+    <table class="client-table">
+      <caption>Lista de Clientes</caption>
+      <thead>
+        <tr>
+          <th>RUC</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+          <th>Correo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of todosClientes">
+          <td>{{ cliente.rucCliente }}</td>
+          <td>{{ cliente.nomCliente }}</td>
+          <td>{{ cliente.apelCliente }}</td>
+          <td>{{ cliente.dirCliente }}</td>
+          <td>{{ cliente.telCliente }}</td>
+          <td>{{ cliente.mailCliente }}</td>
+          <td>
+            <button class="edit-button" (click)="editarCliente(cliente.idcliente, cliente)">Editar</button>
+            <button class="delete-button" (click)="borradorCliente(cliente.idcliente)">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+
+ <!-- Botón para mostrar el formulario -->
+
+<div class="modal" [ngClass]="{'show': habilitarRegistroCliente}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form [formGroup]="formularioCrearCliente" (submit)="creadorCliente()">
+          <div class="modal-header">
+            <h2 class="modal-title">Registro de Cliente </h2>
+            <button type="button" class="close" (click)="cancelarAgregarCliente()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="rucCliente">Ruc:</label>
+              <input type="number" class="form-control" id="rucCliente" formControlName="rucCliente" required>
+            </div>
+            <div class="form-group">
+              <label for="nomCliente">Nombre:</label>
+              <input type="text" class="form-control" id="nomCliente" formControlName="nomCliente" required>
+            </div>
+            <div class="form-group">
+                <label for="apelCliente">Apellido:</label>
+                <input type="text" class="form-control" id="apelCliente" formControlName="apelCliente" required>
+              </div>
+              <div class="form-group">
+                <label for="dirCliente">Dirección:</label>
+                <input type="text" class="form-control" id="dirCliente" formControlName="dirCliente" required>
+              </div>
+              <div class="form-group">
+                <label for="telCliente">Telefono:</label>
+                <input type="number" class="form-control" id="telCliente" formControlName="telCliente" required>
+              </div>
+              <div class="form-group">
+                <label for="mailCliente">Email:</label>
+                <input type="text" class="form-control" id="mailCliente" formControlName="mailCliente" required>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-secondary" (click)="cancelarAgregarCliente()">Cerrar</button>
+            <button type="submit" class="btn-primary" [disabled]="!formularioCrearCliente.valid">Registrar Cliente</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" [ngClass]="{'show': habilitarActualizaCliente}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form [formGroup]="formActualizaCliente" (submit)="actualizacionCliente()">
+          <div class="modal-header">
+            <h2 class="modal-title">Actualizacion de Cliente </h2>
+            <button type="button" class="close" (click)="cancelarAgregarCliente()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="rucCliente">Ruc:</label>
+              <input type="number" class="form-control" id="rucCliente" formControlName="rucCliente" required>
+            </div>
+            <div class="form-group">
+              <label for="nomCliente">Nombre:</label>
+              <input type="text" class="form-control" id="nomCliente" formControlName="nomCliente" required>
+            </div>
+            <div class="form-group">
+                <label for="apelCliente">Apellido:</label>
+                <input type="text" class="form-control" id="apelCliente" formControlName="apelCliente" required>
+              </div>
+              <div class="form-group">
+                <label for="dirCliente">Dirección:</label>
+                <input type="text" class="form-control" id="dirCliente" formControlName="dirCliente" required>
+              </div>
+              <div class="form-group">
+                <label for="telCliente">Telefono:</label>
+                <input type="number" class="form-control" id="telCliente" formControlName="telCliente" required>
+              </div>
+              <div class="form-group">
+                <label for="mailCliente">Email:</label>
+                <input type="text" class="form-control" id="mailCliente" formControlName="mailCliente" required>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-secondary" (click)="cancelarAgregarCliente()">Cerrar</button>
+            <button type="submit" class="btn-primary" [disabled]="!formActualizaCliente.valid">Actualizar Cliente</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+</div>
+  
